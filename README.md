@@ -1,12 +1,62 @@
-# React + Vite
+# React Cinema 🎬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React application that allows users to search and find movies using the IMDB API. The project includes features such as data fetching, loading states, error handling, and a movie search functionality.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎥 **Fetch Movies** – Retrieves movie data from the IMDB API.
+- ⏳ **Loading Functionality** – Displays a loading indicator while fetching data.
+- ⚠️ **Error Handling** – Handles API errors and provides user-friendly feedback.
+- 🔍 **Search Movies** – Allows users to search for movies using a search bar.
 
-## Expanding the ESLint configuration
+## 🛠️ Installation
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/your-username/React_Cinema.git
+   ```
+2. Navigate into the project directory:
+   ```bash
+   cd React_Cinema
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## ▶️ Running the Application
+
+To start the development server, run:
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:5173/` (if using Vite).
+
+## ⚡ Usage
+
+- Enter a movie title in the search bar to find movies.
+- Wait for the loading spinner if data is being fetched.
+- If an error occurs, a message will be displayed.
+
+## 🔧 Technologies Used
+
+- **React** – Frontend library
+- **Vite** – Fast build tool
+- **IMDB API** – Fetching movie data
+- **React Hooks** – `useState`, `useEffect` for state management
+- **CSS/Tailwind** – Styling
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+Made with ❤️ by [Elias Belay]
+

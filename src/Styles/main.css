@@ -1,0 +1,50 @@
+.main {
+  min-height: 75vh;
+}
+
+.movies__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 30px;
+}
+
+.movies__list img {
+  width: 14rem;
+  cursor: pointer;
+  border-radius: 1rem;
+}
+
+.movies__list ul li {
+  list-style: none;
+  box-shadow: 1px 1px 10px rgb(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 1rem;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.movies__list ul li:hover {
+  transform: scale(1.1); /* Slightly enlarge */
+  background-color: rgb(242, 234, 234); /* Change color */
+}
+
+.movie__title {
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 5px;
+}
+
+.year__type {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.type {
+  border: 1px solid black;
+  padding: 1px 10px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+

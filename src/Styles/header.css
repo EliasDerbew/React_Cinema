@@ -1,0 +1,47 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  padding-bottom: 0;
+  margin: 0 30px;
+}
+
+.logo {
+  font-family: "Rubik Wet Paint", sans-serif;
+  color: rgb(10, 71, 255);
+  cursor: pointer;
+}
+
+.search__input {
+  height: 40px;
+  padding: 0 40px;
+  min-width: 35rem;
+  border-radius: 0.5rem;
+  border: 1px solid blue;
+  font-family: "Winky Sans", sans-serif;
+  font-size: 16px;
+}
+
+.nav__links ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  font-family: "Winky Sans", sans-serif;
+  font-size: 16px;
+}
+
+.nav__links ul li {
+  cursor: pointer;
+  color: blue;
+}
+
+.nav__links ul li:hover {
+  text-decoration: underline;
+}
+
+.horizontal__line {
+  height: 3px;
+  background-color: rgba(4, 4, 250, 0.426);
+  margin: 10px 40px;
+  border-radius: 2rem;
+}

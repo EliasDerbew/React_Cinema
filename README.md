@@ -8,7 +8,7 @@ A simple React application that allows users to search and find movies using the
 - ⏳ **Loading Functionality** – Displays a loading indicator while fetching data.
 - ⚠️ **Error Handling** – Handles API errors and provides user-friendly feedback.
 - 🔍 **Search Movies** – Allows users to search for movies using a search bar.
-
+- 🧐 **Detail of Movies** - User can see the detail of the movies.
 ## 🛠️ Installation
 
 1. Clone this repository:

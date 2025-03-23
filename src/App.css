@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 
 .loading__error {
@@ -14,4 +15,35 @@
   gap: 30px;
   justify-content: center;
   font-family: "DynaPuff", sans-serif;
+}
+
+.main__body {
+  display: flex;
+  margin: 25px;
+}
+
+
+.movie__detail{
+ height: 45vh;
+ padding: 10px;
+ box-shadow: 1px 1px 10px black;
+ border-radius: 
+}
+
+.movie__detail img {
+  max-width: 12rem;
+  border-radius: .5rem;
+}
+
+.detail__info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: "Josefin Sans", sans-serif;
 }

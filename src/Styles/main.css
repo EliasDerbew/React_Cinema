@@ -3,9 +3,8 @@
 }
 
 .movies__list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .movies__list img {
@@ -20,6 +19,7 @@
   padding: 20px;
   margin: 10px;
   border-radius: 1rem;
+  max-width: 18rem;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 

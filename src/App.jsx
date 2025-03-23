@@ -13,6 +13,11 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [searchQuary, setSearchQuary] = useState("batman");
+  const [selectedId, setSelectedId] = useState(null);
+
+  const handleDetail = function (id) {
+    setSelectedId((selectedId) => (selectedId === id ? null : id));
+  };
 
   useEffect(() => {
     const controller = new AbortController();
@@ -34,6 +39,7 @@ export default function App() {
         if (data.Response === "False") throw new Error("Movies Not Found");
 
         setMovies(data.Search);
+        console.log(data.Search);
         setError("");
       } catch (err) {
         console.error(err.message);
@@ -53,14 +59,60 @@ export default function App() {
     };
   }, [searchQuary]);
   return (
-    <div>
+    <div className="app">
       <Header search={searchQuary} onSearch={setSearchQuary} />
+      <div className="main__body">
+        {isLoading && <Loading />}
+        {!isLoading && !error && (
+          <Main movies={movies} onHandleDetail={handleDetail} />
+        )}
+        {error && <ErrorMessage error={error} />}
 
-      {isLoading && <Loading />}
-      {!isLoading && !error && <Main movies={movies} />}
-      {error && <ErrorMessage error={error} />}
-
+        {selectedId === null ? "" : <MoviesDetail movieId={selectedId} />}
+      </div>
       <Footer />
     </div>
   );
 }
+
+function MoviesDetail({ movieId }) {
+  const [detailMovie, setDetailMovie] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchingDetailMovie = async () => {
+      setLoading(true);
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=${key}&i=${movieId}`
+      );
+      const detailData = await response.json();
+      setDetailMovie(detailData);
+      console.log(detailData);
+    };
+
+    fetchingDetailMovie();
+    setLoading(false);
+  }, [movieId]);
+
+  return (
+    <di className="movie__detail">
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="detail__info">
+          <img src={detailMovie.Poster} alt="" />
+          <div className="info">
+            <div>
+              <h2>{detailMovie.Title}</h2>
+              <p>{`Year: ${detailMovie.Released}`}</p>
+              <p>{`Run Time: ${detailMovie.Runtime}`}</p>
+            </div>
+            <p>{detailMovie.Plot}</p>
+            <p>{`Director: ${detailMovie.Director}`}</p>
+          </div>
+        </div>
+      )}
+    </di>
+  );
+}
+

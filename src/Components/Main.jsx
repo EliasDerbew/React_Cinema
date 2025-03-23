@@ -1,28 +1,32 @@
 import "../Styles/main.css";
 
-export default function Main({ movies }) {
+export default function Main({ movies, onHandleDetail }) {
   return (
     <div className="main">
-      <MoviesList movies={movies} />
+      <MoviesList movies={movies} onHandleDetail={onHandleDetail} />
     </div>
   );
 }
 
-function MoviesList({ movies }) {
+function MoviesList({ movies, onHandleDetail }) {
   return (
     <div className="movies__list">
       {movies.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
+        <Movie
+          movie={movie}
+          onHandleDetail={onHandleDetail}
+          key={movie.imdbID}
+        />
       ))}
     </div>
   );
 }
 
-function Movie({ movie }) {
+function Movie({ movie, onHandleDetail }) {
   return (
     <div>
       <ul>
-        <li>
+        <li onClick={() => onHandleDetail(movie.imdbID)}>
           <img src={movie.Poster} alt="" />
           <div>
             <h2 className="movie__title">{movie.Title}</h2>

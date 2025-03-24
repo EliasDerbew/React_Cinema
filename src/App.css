@@ -4,17 +4,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-
 }
 
 .loading__error {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  place-content: center;
   min-height: 75vh;
   gap: 30px;
-  justify-content: center;
   font-family: "DynaPuff", sans-serif;
+  max-width: fit-content;
 }
 
 .main__body {
@@ -24,10 +23,7 @@
 
 
 .movie__detail{
- height: 45vh;
- padding: 10px;
- box-shadow: 1px 1px 10px black;
- border-radius: 
+
 }
 
 .movie__detail img {
@@ -46,4 +42,20 @@
   flex-direction: column;
   gap: 20px;
   font-family: "Josefin Sans", sans-serif;
+}
+
+.detail {
+  min-height: 45vh;
+  padding: 10px;
+  box-shadow: 1px 1px 10px black;
+  border-radius: .5rem
+}
+
+.starRating {
+  border: 2px solid rgb(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  margin: 10px 0;
+  background-color: rgb(44, 44, 71); 
+  color: white;
+  width: 35rem
 }

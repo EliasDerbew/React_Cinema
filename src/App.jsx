@@ -4,10 +4,12 @@ import Main from "./Components/Main";
 import Footer from "./Components/Footer";
 import Loading from "./Components/Loading";
 import ErrorMessage from "./Components/ErrorMessage";
+import MoviesDetail from "./Components/MoviesDetail";
 
 import "./App.css";
 
 const key = "ccbce268";
+
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +22,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    const controller = new AbortController();
+    // const controller = new AbortController();
 
     const FetchedMovies = async function () {
       try {
@@ -28,8 +30,8 @@ export default function App() {
         setError("");
 
         const response = await fetch(
-          `http://www.omdbapi.com/?apikey=${key}&s=${searchQuary}}`,
-          { signal: controller.signal }
+          `http://www.omdbapi.com/?apikey=${key}&s=${searchQuary}}`
+          // { signal: controller.signal }
         );
 
         if (!response.ok) throw new Error("Something Went Wrong . . .");
@@ -54,9 +56,9 @@ export default function App() {
 
     FetchedMovies();
 
-    return function () {
-      controller.abort();
-    };
+    // return function () {
+    //   controller.abort();
+    // };
   }, [searchQuary]);
   return (
     <div className="app">
@@ -74,45 +76,3 @@ export default function App() {
     </div>
   );
 }
-
-function MoviesDetail({ movieId }) {
-  const [detailMovie, setDetailMovie] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchingDetailMovie = async () => {
-      setLoading(true);
-      const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${key}&i=${movieId}`
-      );
-      const detailData = await response.json();
-      setDetailMovie(detailData);
-      console.log(detailData);
-    };
-
-    fetchingDetailMovie();
-    setLoading(false);
-  }, [movieId]);
-
-  return (
-    <di className="movie__detail">
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="detail__info">
-          <img src={detailMovie.Poster} alt="" />
-          <div className="info">
-            <div>
-              <h2>{detailMovie.Title}</h2>
-              <p>{`Year: ${detailMovie.Released}`}</p>
-              <p>{`Run Time: ${detailMovie.Runtime}`}</p>
-            </div>
-            <p>{detailMovie.Plot}</p>
-            <p>{`Director: ${detailMovie.Director}`}</p>
-          </div>
-        </div>
-      )}
-    </di>
-  );
-}
-

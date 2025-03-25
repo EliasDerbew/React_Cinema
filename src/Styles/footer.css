@@ -6,15 +6,16 @@
   gap: 10px;
   font-family: "Inconsolata", sans-serif;
   border-top: 2px solid blue;
-  margin: 0 30px;
+  margin: 10px 30px;
+  font-size: 12px;
 }
 
 .social__links {
   display: flex;
-  gap: 40px;
+  gap: 10px;
 }
 
 .footer img {
-  width: 40px;
+  width: 25px;
   cursor: pointer;
 }

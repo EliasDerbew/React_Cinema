@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import Loading from "./Components/Loading";
 import ErrorMessage from "./Components/ErrorMessage";
 import MoviesDetail from "./Components/MoviesDetail";
+import WatchedMovies from "./Components/WatchedMovies";
 
 import "./App.css";
 
@@ -62,16 +63,29 @@ export default function App() {
   }, [searchQuary]);
   return (
     <div className="app">
+      {/* this is the header of the page */}
       <Header search={searchQuary} onSearch={setSearchQuary} />
-      <div className="main__body">
-        {isLoading && <Loading />}
-        {!isLoading && !error && (
-          <Main movies={movies} onHandleDetail={handleDetail} />
-        )}
-        {error && <ErrorMessage error={error} />}
 
-        {selectedId === null ? "" : <MoviesDetail movieId={selectedId} />}
+      {/* this is the main body of the page */}
+      <div className="main__body">
+
+        <div className="movies__list">
+          {isLoading && <Loading />}
+
+          {!isLoading && !error && (
+            <Main movies={movies} onHandleDetail={handleDetail} />
+          )}
+          {error && <ErrorMessage error={error} />}
+        </div>
+        <div className="watched__movies">
+
+          {/* <WatchedMovies /> */}
+          {selectedId === null ? "" : <MoviesDetail movieId={selectedId} />}
+        </div>
       </div>
+
+
+      {/* this is the footer of the page */}
       <Footer />
     </div>
   );

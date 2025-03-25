@@ -23,7 +23,7 @@ export default function MoviesDetail({ movieId }) {
   }, [movieId]);
 
   return (
-    <di className="movie__detail">
+    <div className="movie__detail">
       {loading ? (
         <Loading />
       ) : (
@@ -42,9 +42,10 @@ export default function MoviesDetail({ movieId }) {
           </div>
           <div className="starRating">
             <StarRating maxRating={10} defaultRating={detailMovie.imdbRating} />
+            <button className="add__to__watched">Add to WatchedList</button>
           </div>
         </div>
       )}
-    </di>
+    </div>
   );
 }
